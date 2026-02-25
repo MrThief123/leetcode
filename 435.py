@@ -13,8 +13,10 @@ class Solution:
 
         prevEnd = intervals[0][1]
         for start, end in intervals[1:]:
+            # not overlap
             if start >= prevEnd:
                 prevEnd = end
+            # if overlap
             else:
                 res += 1
                 prevEnd = min(end, prevEnd)
