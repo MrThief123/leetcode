@@ -1,21 +1,25 @@
-'''
-Use two pointers to find vowels from both ends of the string
-Swap the vowels when both pointers point to a vowel
+"""
+345. Reverse Vowels of a String  [Easy]
 
-Note: String are not mutable -> convert to list and back to string
-'''
+Approach (two pointers from both ends):
+  - Move each pointer inward until it sits on a vowel, then swap them.
+  - Strings are immutable, so work on a list and join at the end.
+
+Complexity: O(n) time, O(n) space
+"""
 
 class Solution:
     def reverseVowels(self, s: str) -> str:
-        
-        vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
-        
-        s_list = list(s) 
 
-        left = 0 
+        vowels = {'a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'}
+
+        s_list = list(s)  # mutable copy
+
+        left = 0
         right = len(s_list) - 1
 
         while left < right:
+            # Skip non-vowels from each side
             while left < right and s_list[left] not in vowels:
                 left += 1
             while left < right and s_list[right] not in vowels:
@@ -26,4 +30,4 @@ class Solution:
                 left += 1
                 right -= 1
 
-        return "".join(s_list) 
+        return "".join(s_list)

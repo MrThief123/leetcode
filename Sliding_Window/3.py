@@ -1,24 +1,28 @@
-'''
-Two pointer approach
-Use a set to store characters in the current substring
-Move right pointer to expand the window
-If a duplicate character is found, move the left pointer to shrink the window until the duplicate is removed
-Update the maximum length of the substring found so far
-'''
+"""
+3. Longest Substring Without Repeating Characters  [Medium]
+
+Approach (sliding window + set):
+  - Grow the window by moving `right`.
+  - If s[right] is already in the window, shrink from `left` until it is removed.
+  - Track the longest window length.
+
+Complexity: O(n) time, O(min(n, alphabet)) space
+"""
 
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         best = 0
 
-        charSet = set()
+        charSet = set()  # characters currently in the window
 
         if len(s) <= 1:
             return len(s)
 
         left = 0
 
-        for  right in range(len(s)):
-            
+        for right in range(len(s)):
+
+            # Duplicate found: shrink from the left until it's gone
             while s[right] in charSet:
                 charSet.remove(s[left])
                 left += 1

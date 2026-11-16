@@ -1,13 +1,18 @@
-'''
-1937. Maximum Number of Points with Cost
-Use dp with left and right sweeps to optimize the transition.
+"""
+1937. Maximum Number of Points with Cost  [Medium]
 
-If we have row 1 1 10 1 1 
-Then the best we can do for the next row is:
-- from left to right: 1 1 10 9 8
-- from right to left: 8 9 10 1 1
-Taking the max of these two gives us the best possible previous row values for each column in the current row.
-'''
+Approach (DP with left/right sweeps):
+  - dp[i][j] = points[i][j] + max over k of (dp[i-1][k] - |j - k|).
+  - Computing that max naively is O(n^2) per row, so split by direction:
+      * left sweep: best from columns to the left, losing 1 per step
+      * right sweep: best from columns to the right, losing 1 per step
+  - Example, previous row 1 1 10 1 1:
+      left to right: 1 1 10 9 8
+      right to left: 8 9 10 1 1
+    The max of the two is the best value reachable from the previous row at each column.
+
+Complexity: O(m * n) time, O(m * n) space
+"""
 
 class Solution:
     def maxPoints(self, points: List[List[int]]) -> int:

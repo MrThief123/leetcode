@@ -1,9 +1,13 @@
-'''
-Remove the middle node from a singly linked list using the two-pointer technique
-Use a slow pointer to find the middle node and a fast pointer to reach the end of the list
-Maintain a previous pointer to the node before the slow pointer to facilitate removal
-If the list has only one node, return None
-'''
+"""
+2095. Delete the Middle Node of a Linked List  [Medium]
+
+Approach (slow/fast pointers):
+  - fast moves two steps per slow's one, so slow lands on the middle.
+  - Track `prev` (node before slow) to unlink the middle.
+  - A single-node list becomes empty.
+
+Complexity: O(n) time, O(1) space
+"""
 
 # Definition for singly-linked list.
 # class ListNode:
@@ -12,10 +16,11 @@ If the list has only one node, return None
 #         self.next = next
 class Solution:
     def deleteMiddle(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        prev = ListNode
-        slow = head 
+        prev = ListNode  # placeholder; reassigned in the loop
+        slow = head
         fast = head
 
+        # One node: deleting it leaves an empty list
         if not head.next:
             return head.next
 
@@ -23,8 +28,8 @@ class Solution:
             prev = slow
             fast = fast.next.next
             slow = slow.next
-        
+
+        # slow is the middle: skip over it
         prev.next = slow.next
-        
 
         return head

@@ -1,8 +1,14 @@
-'''
-3742. Maximum Path Score in a Grid
-Use dynamic programming to track the maximum score achievable at each cell given the cost constraints.
-Keep a 3D DP array where dp[i][j][c] represents the maximum score at cell (i, j) using cost c.
-'''
+"""
+3742. Maximum Path Score in a Grid  [Medium]
+
+Approach (DP over cell + cost used):
+  - Walk from the top-left to the bottom-right moving only right or down.
+  - Cell values: 0 -> +0 score / 0 cost, 1 -> +1 score / 1 cost, 2 -> +2 score / 1 cost.
+  - dp[i][j][c] = best score reaching (i, j) having spent exactly cost c (-1 = unreachable).
+  - Push each state forward to the cell below and the cell to the right, staying within budget k.
+
+Complexity: O(m * n * k) time, O(m * n * k) space
+"""
 
 class Solution:
     def maxPathScore(self, grid: List[List[int]], k: int) -> int:
@@ -23,6 +29,7 @@ class Solution:
             for j in range(n):
                 for cost_used in range(k + 1):
 
+                    # Unreachable state
                     if dp[i][j][cost_used] == -1:
                         continue
 
@@ -48,4 +55,5 @@ class Solution:
                                 new_score
                             )
 
+        # Best over every cost level at the destination
         return max(dp[m - 1][n - 1])

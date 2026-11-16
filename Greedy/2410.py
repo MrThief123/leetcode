@@ -1,20 +1,23 @@
-'''
-2410. Maximum Matching of Players With Trainers
-Use a two-pointer technique to match players with trainers
-Sort both the players' skill levels and trainers' capacities
-Iterate through both lists, matching players to trainers when possible
-Count the number of successful matches
-'''
+"""
+2410. Maximum Matching of Players and Trainers  [Medium]
+
+Approach (sort + two pointers):
+  - Sort both lists.
+  - Walk through trainers in ascending capacity; match the weakest unmatched
+    player whenever the trainer can handle them.
+
+Complexity: O(n log n + m log m) time, O(n + m) space
+"""
 
 class Solution:
     def matchPlayersAndTrainers(self, players: List[int], trainers: List[int]) -> int:
         players = sorted(players)
         trainers = sorted(trainers)
 
-        left = 0
-        right = 0
+        left = 0   # next unmatched player
+        right = 0  # current trainer
 
-        out = 0
+        out = 0  # matches
 
         n = len(players)
         m = len(trainers)
@@ -22,7 +25,7 @@ class Solution:
         while left < n and right < m:
             if players[left] <= trainers[right]:
                 out += 1
-                left += 1
-            right += 1
+                left += 1  # player matched
+            right += 1     # trainer used or too weak: move on
 
         return out

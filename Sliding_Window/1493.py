@@ -1,19 +1,16 @@
-'''
-Use sliding window technique to find the longest subarray of 1s after deleting one element
-Maintain a count of the number of zeros in the current window
-Expand the window by moving the right pointer and include elements
-If the count of zeros exceeds 1, shrink the window by moving the left pointer until the count of zeros is at most 1
-Update the maximum length of the subarray found so far  
-'''
+"""
+1493. Longest Subarray of 1's After Deleting One Element  [Medium]
 
-'''
-Expand window right while window is valid 
-Retract window left until window is valid again
-'''
+Idea: find the longest window containing at most one zero; the deleted element
+is that zero (or any element if there is none), so the answer is window size - 1.
 
+Complexity: O(n) time, O(1) space
+"""
+
+# Version 1 (clean): expand right, shrink left while the window has > 1 zero
 class Solution:
     def longestSubarray(self, nums: List[int]) -> int:
-        zero_count = 0
+        zero_count = 0  # zeros inside the window
         left = 0
         out = 0
 
@@ -21,39 +18,33 @@ class Solution:
             if nums[right] == 0:
                 zero_count += 1
 
+            # Window invalid: shrink until at most one zero remains
             while zero_count > 1:
                 if nums[left] == 0:
                     zero_count -= 1
                 left += 1
 
+            # Window size minus the one element we must delete
             out = max(out, right - left)
 
         return out
-        
 
 
-'''
-Use sliding window technique to find the longest subarray of 1s after deleting one element
-Maintain a count of the current length of 1s in the window
-Expand the window by moving the right pointer and include elements
-If a 0 is encountered, use the buffer to allow one deletion and continue
-If another 0 is encountered, shrink the window by moving the left pointer until the buffer is restored
-Update the maximum length of the subarray found so far
-'''
-
+# Version 2 (earlier attempt): same idea with an explicit "buffer" for the one allowed zero
 class Solution:
     def longestSubarray(self, nums: List[int]) -> int:
         n = len(nums)
-        
-        flip = False
+
+        flip = False  # unused
         left, right, out = 0, 0, 0
 
-        curr = -1
+        curr = -1  # starts at -1 to account for the mandatory deletion
 
-        buffer = 1
+        buffer = 1  # 1 = the zero allowance is unused, 0 = used
 
         while right < n:
 
+            # Expand until the allowance is spent on a zero
             while buffer == 1 and right < n:
                 if nums[right] == 0:
                     buffer = 0
@@ -61,6 +52,7 @@ class Solution:
                 right += 1
                 out = max(curr, out)
 
+            # Keep extending across ones; stop at the next zero
             while buffer == 0 and right < n:
                 if nums[right] == 1:
                     curr += 1
@@ -69,12 +61,11 @@ class Solution:
                 else:
                     break
 
+            # Shrink from the left until the used zero leaves the window
             while buffer == 0:
                 if nums[left] == 0:
                     buffer = 1
                 curr -= 1
                 left += 1
-    
-        return out
 
-        
+        return out

@@ -1,8 +1,15 @@
-'''
-2577. Minimum Time to Visit a Cell in a Grid
-Use Dijkstra's algorithm to find the minimum time to reach the bottom-right cell
-Account for the time constraints of each cell and parity conditions when moving
-'''
+"""
+2577. Minimum Time to Visit a Cell in a Grid  [Hard]
+
+Approach (Dijkstra with waiting via parity):
+  - grid[r][c] is the earliest time you may enter a cell, and you must move every second.
+  - You can't stand still, but you can bounce between two cells, which wastes
+    time in steps of 2, so the arrival time at a cell keeps the parity of (r + c).
+  - Next arrival = max(time + 1, grid[nx][ny]), bumped by 1 if the wait wasn't even.
+  - If both moves out of the start are blocked (> 1) we can never leave: -1.
+
+Complexity: O(rows * cols * log(rows * cols)) time, O(rows * cols) space
+"""
 
 class Solution:
     def minimumTime(self, grid: List[List[int]]) -> int:

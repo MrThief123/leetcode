@@ -1,8 +1,12 @@
-'''
-Remove duplicates from sorted array in-place using two-pointer technique
-Maintain a pointer for the position of unique elements
-Iterate through the array and when a new unique element is found, place it at the unique
-'''
+"""
+26. Remove Duplicates from Sorted Array  [Easy]
+
+Approach (slow/fast pointers):
+  - unique_index marks the last unique value written.
+  - When the scan finds a different value, write it just after unique_index.
+
+Complexity: O(n) time, O(1) space
+"""
 
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:

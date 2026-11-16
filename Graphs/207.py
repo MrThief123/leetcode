@@ -1,14 +1,20 @@
-'''
-207. Course Schedule
-Use topological sort (Kahn's algorithm) to determine if all courses can be finished.
-'''
+"""
+207. Course Schedule  [Medium]
+
+Approach (Kahn's topological sort):
+  - Edge prereq -> course; track each course's indegree (unmet prerequisites).
+  - Repeatedly take courses with indegree 0 and release the courses depending on them.
+  - If every course gets taken there is no cycle.
+
+Complexity: O(V + E) time, O(V + E) space
+"""
 
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         from collections import defaultdict, deque
-        
+
         # Build the graph and indegree array
-        graph = defaultdict(list)
+        graph = defaultdict(list)  # prereq -> courses that depend on it
         indegree = [0] * numCourses
 
         # Populate the graph
@@ -22,7 +28,7 @@ class Solution:
             if indegree[i] == 0:
                 queue.append(i)
 
-        taken = 0
+        taken = 0  # courses completed
 
         # Process the courses
         while queue:
@@ -36,4 +42,5 @@ class Solution:
                 if indegree[nxt] == 0:
                     queue.append(nxt)
 
+        # Courses left over are stuck in a cycle
         return taken == numCourses

@@ -1,26 +1,25 @@
-'''
-773. Sliding Puzzle
-The board is a 2 x 3 array, and each cell has a number from
-Use a breadth-first search (BFS) approach to explore all possible board configurations.
-Start with the initial board configuration and enqueue it along with the position of the zero (empty space) 
-and the number of steps taken (initially 0).
-Use a set to keep track of seen configurations to avoid cycles.
-For each configuration, generate new configurations by sliding the zero in the four possible directions (up, down, left, right) 
-    if the move is valid.
-If a new configuration matches the target configuration, return the number of steps taken plus one.
-If the queue is exhausted without finding the target configuration, return -1.
-'''
+"""
+773. Sliding Puzzle  [Hard]
+
+Approach (BFS over board states):
+  - Flatten the 2x3 board to a 6-element list; the goal is (1, 2, 3, 4, 5, 0).
+  - Each state is (board, index of the empty 0, moves so far).
+  - Slide the 0 up/down/left/right, skipping states already seen.
+  - BFS guarantees the first time we reach the goal uses the fewest moves.
+
+Complexity: O(S) time and space, S = reachable states (at most 6! = 720)
+"""
 
 from collections import deque
 
 class Solution:
     def slidingPuzzle(self, board: list[list[int]]) -> int:
-        board = board[0] + board[1]
-        sol = (1, 2, 3, 4, 5, 0)
+        board = board[0] + board[1]  # flatten: index = row * 3 + col
+        sol = (1, 2, 3, 4, 5, 0)     # goal state
 
         queue = deque([(board, board.index(0), 0)])
         seen = set()
-        seen.add(tuple(board))
+        seen.add(tuple(board))  # lists aren't hashable, so store tuples
 
         while queue:
             board, pos, step = queue.popleft()
@@ -28,7 +27,7 @@ class Solution:
             if tuple(board) == sol:
                 return step
 
-            # up
+            # up (move 0 one row up)
             if pos - 3 >= 0:
                 temp = board.copy()
                 temp[pos], temp[pos - 3] = temp[pos - 3], temp[pos]
@@ -44,7 +43,7 @@ class Solution:
                     queue.append((temp, pos + 3, step + 1))
                     seen.add(tuple(temp))
 
-            # left
+            # left (not allowed from the first column)
             if pos % 3 != 0:
                 temp = board.copy()
                 temp[pos], temp[pos - 1] = temp[pos - 1], temp[pos]
@@ -52,7 +51,7 @@ class Solution:
                     queue.append((temp, pos - 1, step + 1))
                     seen.add(tuple(temp))
 
-            # right
+            # right (not allowed from the last column)
             if pos % 3 != 2:
                 temp = board.copy()
                 temp[pos], temp[pos + 1] = temp[pos + 1], temp[pos]
@@ -60,4 +59,4 @@ class Solution:
                     queue.append((temp, pos + 1, step + 1))
                     seen.add(tuple(temp))
 
-        return -1
+        return -1  # goal unreachable

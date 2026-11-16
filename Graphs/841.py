@@ -1,16 +1,20 @@
-'''
-Determine if all rooms can be visited starting from room 0
-Use a stack to perform depth-first search (DFS) through the rooms
-Keep track of visited rooms using a set
-Return true if all rooms have been visited, otherwise false
-'''
+"""
+841. Keys and Rooms  [Medium]
+
+Approach (iterative DFS):
+  - Start in room 0; the stack holds rooms whose keys we've collected.
+  - Visit rooms, picking up their keys. All rooms are reachable if we visit len(rooms).
+
+Complexity: O(rooms + keys) time, O(rooms) space
+"""
 
 class Solution:
     def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
         visited = set()
 
-        stack = []
+        stack = []  # rooms we know the key for but haven't entered
 
+        # Keys found in room 0
         for i in rooms[0]:
             stack.append(i)
 
@@ -20,8 +24,9 @@ class Solution:
             room = stack.pop()
             visited.add(room)
 
+            # Collect this room's keys
             for i in rooms[room]:
                 if i not in visited:
                     stack.append(i)
-                    
+
         return len(visited) == len(rooms)

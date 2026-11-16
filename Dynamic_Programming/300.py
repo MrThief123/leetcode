@@ -1,8 +1,15 @@
-'''
-300. Longest Increasing Subsequence
-Use dynamic programming with binary search to efficiently find the length of the longest increasing subsequence.
-Maintain a dp array where dp[i] represents the smallest tail of all increasing subsequences of length i+1.
-'''
+"""
+300. Longest Increasing Subsequence  [Medium]
+
+Approach (patience sorting / tails array):
+  - dp[i] holds the smallest possible tail of any increasing subsequence of length i+1.
+  - For each num, binary search the first tail >= num:
+      * past the end -> extend the LIS
+      * otherwise -> replace that tail with the smaller num (improves future options)
+  - The LIS length is len(dp). (dp itself is not necessarily a valid subsequence.)
+
+Complexity: O(n log n) time, O(n) space
+"""
 
 from bisect import bisect_left
 

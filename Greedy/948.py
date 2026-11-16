@@ -1,33 +1,38 @@
-'''
-948. Bag of Tokens
-You have an initial power of power, an initial score of 0, and a bag of tokens where tokens[i] is the value of the ith token (0-indexed).
-Your goal is to maximize your total score by potentially playing any number of tokens. Each token can be played at most once and in one of two ways:
-- If you have at least tokens[i] power, you can play the ith token face up, losing tokens[i] power and gaining 1 score.
-- If you have at least 1 score, you can play the ith token face down, gaining tokens[i] power and losing 1 score.
-Return the largest possible score you can achieve after playing any number of tokens.
-'''
+"""
+948. Bag of Tokens  [Medium]
+
+Approach (greedy with a deque, two ends):
+  - Sorted tokens: spend power on the cheapest token (face up, +1 score) and
+    gain power by trading score for the most expensive token (face down).
+  - `temp` is the current score; `out` is the best score seen at any moment.
+  - Stop if we'd need to play face down with no score left (temp would be -1).
+
+Complexity: O(n log n) time, O(n) space
+"""
 
 class Solution:
     def bagOfTokensScore(self, tokens: List[int], power: int) -> int:
         from collections import deque
         tokens.sort()
 
-        out = 0
-        temp = 0
+        out = 0   # best score achieved
+        temp = 0  # current score
 
         tokens = deque(tokens)
 
         while tokens:
             if temp == -1:
-                break
+                break  # played face down with no score: invalid, stop
             if power >= tokens[0]:
+                # Play the cheapest token face up
                 temp += 1
                 out = max(out, temp)
                 cost = tokens.popleft()
                 power -= cost
             else:
+                # Can't afford anything: sell score for the biggest token's power
                 temp -= 1
                 cost = tokens.pop()
                 power += cost
-        
+
         return out

@@ -1,8 +1,13 @@
-'''
-1022. Sum of Root To Leaf Binary Numbers
-Use DFS to traverse the tree and keep track of the path from root to leaf as a string. 
-When we reach a leaf node, we convert the string to an integer using base 2 and add it to the total sum.
-'''
+"""
+1022. Sum of Root To Leaf Binary Numbers  [Easy]
+
+Approach (DFS carrying the path):
+  - Build the root-to-node bit string as we descend.
+  - At a leaf, convert the string from base 2 and add it to the total.
+  - (Passing a running integer, num*2 + val, would avoid string building.)
+
+Complexity: O(n) time, O(h) space
+"""
 
 # Definition for a binary tree node.
 # class TreeNode:
@@ -13,21 +18,21 @@ When we reach a leaf node, we convert the string to an integer using base 2 and 
 
 class Solution:
     def sumRootToLeaf(self, root: Optional[TreeNode]) -> int:
-        self.total = 0
-        
+        self.total = 0  # sum over all leaves
+
         def dfs(node, s):
             if not node:
                 return
-            
-            s += str(node.val)
-            
+
+            s += str(node.val)  # extend the path with this bit
+
             # If leaf node
             if not node.left and not node.right:
                 self.total += int(s, 2)
                 return
-            
+
             dfs(node.left, s)
             dfs(node.right, s)
-        
+
         dfs(root, "")
         return self.total

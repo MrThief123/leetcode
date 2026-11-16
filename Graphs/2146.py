@@ -1,9 +1,14 @@
-'''
-2146. K Highest Ranked Items Within a Price Range
-Use a BFS to explore the grid from the starting position
-Maintain a max-heap to keep track of the top k items based on distance, price, and coordinates
-Expand in all four directions, marking visited cells and adding valid items to the heap
-'''
+"""
+2146. K Highest Ranked Items Within a Price Range  [Medium]
+
+Approach (BFS + bounded heap):
+  - BFS from the start gives each cell's distance (walls = 0 are blocked).
+  - Items priced in [low, high] are ranked by (distance, price, row, col), smaller first.
+  - Keep the best k in a max-heap (negated keys) so the worst of them is on top
+    and can be replaced by a better item.
+
+Complexity: O(rows * cols * log k) time, O(rows * cols) space
+"""
 
 class Solution:
     def highestRankedKItems(self, grid: List[List[int]], pricing: List[int], start: List[int], k: int) -> List[List[int]]:
@@ -36,8 +41,8 @@ class Solution:
             if low <= grid[x][y] <= high:
                 price = grid[x][y]
 
-                pri = (dist, price, x, y)
-                neg_pri = (-dist, -price, -x, -y)
+                pri = (dist, price, x, y)               # ranking key (smaller is better)
+                neg_pri = (-dist, -price, -x, -y)       # negated so heapq acts as a max-heap
 
                 if len(max_heap) < k:
                     heapq.heappush(max_heap, (neg_pri, pri))
@@ -56,7 +61,7 @@ class Solution:
                         visited[nx][ny] = True
                         q.append((nx, ny, dist + 1))
 
-        # Extract results from heap (sorted by priority)
+        # Extract results from heap (sorted by priority) and keep just (x, y)
         result = [pri[2:] for _, pri in sorted(max_heap, key=lambda x: x[1])]
 
         return result

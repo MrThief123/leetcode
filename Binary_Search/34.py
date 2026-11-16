@@ -1,8 +1,12 @@
-'''
-Use binary search to find the first and last positions of a target value in a sorted array
-Utilize bisect module to find the leftmost and rightmost indices of the target
-Return [-1, -1] if the target is not found, otherwise return the found indices
-'''
+"""
+34. Find First and Last Position of Element in Sorted Array  [Medium]
+
+Approach (binary search via bisect):
+  - bisect_left gives the first index of target; bisect_right gives one past the last.
+  - If they are equal the target is absent.
+
+Complexity: O(log n) time, O(1) space
+"""
 
 class Solution(object):
     def searchRange(self, nums, target):
@@ -12,9 +16,9 @@ class Solution(object):
         :rtype: List[int]
         """
 
-        a = bisect.bisect_left(nums, target)
-        b = bisect.bisect_right(nums, target)
+        a = bisect.bisect_left(nums, target)    # first position >= target
+        b = bisect.bisect_right(nums, target)   # first position > target
 
-        if a == b :
-            return [-1, -1]
-        return [a, b-1]        
+        if a == b:
+            return [-1, -1]  # target not present
+        return [a, b-1]

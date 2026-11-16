@@ -1,19 +1,20 @@
-'''
-Find the number of days until a warmer temperature for each day in the list
-Use a stack to keep track of indices of days with unresolved warmer temperatures
-Iterate through the list of temperatures
-For each temperature, pop from the stack while the current temperature is higher than the temperature at the index stored at the top of the stack
-Update the output list with the difference in indices for each popped index
-Push the current index onto the stack
-Return the output list
-'''
+"""
+739. Daily Temperatures  [Medium]
+
+Approach (monotonic decreasing stack of indices):
+  - The stack holds days still waiting for a warmer day.
+  - A warmer day pops every colder day on the stack; the gap in indices is their answer.
+
+Complexity: O(n) time, O(n) space
+"""
 
 class Solution:
     def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
-        stack = []
-        out = [0 for i in range(len(temperatures))]
+        stack = []  # indices of days with no warmer day found yet
+        out = [0 for i in range(len(temperatures))]  # 0 = never gets warmer
 
         for i in range(len(temperatures)):
+            # Today is warmer than the waiting days on top
             while stack and temperatures[i] > temperatures[stack[-1]]:
                 index = stack.pop()
                 out[index] = i - index

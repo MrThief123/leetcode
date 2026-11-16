@@ -1,9 +1,13 @@
-'''
-1162. As Far from Land as Possible
-Use multi-source BFS to find the maximum distance from water to land
-Initialize the queue with all land cells
-Expand in all four directions, marking visited water cells and updating distance
-'''
+"""
+1162. As Far from Land as Possible  [Medium]
+
+Approach (multi-source BFS):
+  - Start from all land cells at once and expand outward one layer at a time.
+  - The number of layers needed to cover all water is the largest distance to land.
+  - All land or all water -> -1.
+
+Complexity: O(rows * cols) time, O(rows * cols) space
+"""
 
 from collections import deque
 
@@ -25,7 +29,7 @@ class Solution:
             return -1
 
         directions = [(1, 0), (-1, 0), (0, 1), (0, -1)]
-        distance = -1
+        distance = -1  # becomes the number of layers expanded minus the land layer
 
         # 2. Multi-source BFS
         # expand from all land cells simultaneously

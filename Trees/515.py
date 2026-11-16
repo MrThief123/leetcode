@@ -1,9 +1,12 @@
-'''
-515. Find Largest Value in Each Tree Row
-Perform a level-order traversal (BFS) of the binary tree
-At each level, track the maximum value among all nodes
-Append the maximum value of each level to the result list   
-'''
+"""
+515. Find Largest Value in Each Tree Row  [Medium]
+
+Approach (BFS level by level):
+  - Process one whole level at a time from the queue.
+  - Track the maximum value on the level while gathering the next level's nodes.
+
+Complexity: O(n) time, O(w) space (w = max tree width)
+"""
 
 # Definition for a binary tree node.
 # class TreeNode:
@@ -13,7 +16,7 @@ Append the maximum value of each level to the result list
 #         self.right = right
 class Solution:
     def largestValues(self, root: Optional[TreeNode]) -> List[int]:
-        from collections import deque 
+        from collections import deque
         queue = deque()
 
         if not root:
@@ -21,11 +24,11 @@ class Solution:
 
         queue.append(root)
 
-        out = []
+        out = []  # one maximum per level
 
         # BFS
         while queue:
-            next_row = []
+            next_row = []  # children, i.e. the next level
             maxx = float('-inf')
 
             # Process current level

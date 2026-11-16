@@ -1,14 +1,18 @@
-'''
-Calculate the n-th Tribonacci number using dynamic programming
-Initialize a list to store Tribonacci numbers up to n
-Set the base cases for T(0), T(1), and T(2)
-Iteratively compute Tribonacci numbers from T(3) to T(n) using the relation T(n) = T(n-1) + T(n-2) + T(n-3) 
-'''
+"""
+1137. N-th Tribonacci Number  [Easy]
+
+Approach (bottom-up DP):
+  - T(0) = 0, T(1) = 1, T(2) = 1, and T(n) = T(n-1) + T(n-2) + T(n-3).
+  - Fill a table up to n (n <= 37 by the constraints, hence the 38 slots).
+
+Complexity: O(n) time, O(1) space (fixed-size table)
+"""
 
 class Solution:
     def tribonacci(self, n: int) -> int:
-        dp = [0 for i in range(38)]
+        dp = [0 for i in range(38)]  # indices 0..37
 
+        # Base cases
         dp[0] = 0
         dp[1] = 1
         dp[2] = 1

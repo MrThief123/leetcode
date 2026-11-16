@@ -1,10 +1,13 @@
-'''
-Use stack to validate parentheses
-Push opening brackets onto the stack
-For closing brackets, check if the top of the stack matches the corresponding opening bracket
-If it matches, pop the stack; otherwise, return false
-At the end, if the stack is empty, all brackets were matched correctly
-'''
+"""
+20. Valid Parentheses  [Easy]
+
+Approach (stack):
+  - Push opening brackets.
+  - For a closing bracket, the top of the stack must be its matching opener; pop it.
+  - Valid only if every character was matched (count of matches == len / 2).
+
+Complexity: O(n) time, O(n) space
+"""
 
 class Solution(object):
     def isValid(self, s):
@@ -14,6 +17,7 @@ class Solution(object):
         """
         stack = []
 
+        # closing bracket -> its opening partner
         lookup = {
 
             ')': '(',
@@ -21,7 +25,7 @@ class Solution(object):
             ']': '['
         }
 
-        count = 0
+        count = 0  # number of matched pairs
 
         for i in s:
             # opening bracket
@@ -32,10 +36,10 @@ class Solution(object):
                     stack.pop()
                     count += 1
                 else:
-                    return False
-                
+                    return False  # wrong or missing opener
+
+        # All characters matched in pairs (this also rejects leftover openers)
         if len(s) / 2.0 == count:
-            return True 
-            
+            return True
+
         return False
-        

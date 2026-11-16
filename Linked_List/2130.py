@@ -1,10 +1,13 @@
-'''
-Find the maximum twin sum in a linked list
-Use the two-pointer technique to find the middle of the list
-Push the first half of the list onto a stack
-Pop elements from the stack while traversing the second half to calculate twin sums
-Keep track of the maximum twin sum found
-'''
+"""
+2130. Maximum Twin Sum of a Linked List  [Medium]
+
+Approach (stack for the first half):
+  - slow/fast pointers find the middle while pushing the first half onto a stack.
+  - Walk the second half; popping the stack yields each node's twin (mirror) value.
+  - Track the largest twin sum.
+
+Complexity: O(n) time, O(n) space
+"""
 
 # Definition for singly-linked list.
 # class ListNode:
@@ -15,21 +18,21 @@ class Solution:
     def pairSum(self, head: Optional[ListNode]) -> int:
         out = float('-inf')
 
-        stack = []
+        stack = []  # values of the first half
 
         slow = head
         fast = head
 
+        # Find the middle, stacking the first half on the way
         while fast and fast.next:
             stack.append(slow.val)
             slow = slow.next
             fast = fast.next.next
-        
+
+        # Second half: the stack top is the mirrored (twin) node
         while slow:
             total = stack.pop() + slow.val
             out = max(total, out)
             slow = slow.next
 
         return out
-
-        

@@ -1,23 +1,25 @@
-'''
-1827. Minimum Operations to Make the Array Increasing
-Iterate through the array while keeping track of the previous element
-For each element, if it is less than or equal to the previous element, calculate the required
-increments to make it one more than the previous element
-Update the previous element to the current element after increments
-'''
+"""
+1827. Minimum Operations to Make the Array Increasing  [Easy]
+
+Approach (greedy):
+  - Each element must be at least (previous final value + 1).
+  - If it is smaller, raise it by the shortfall and add that to the answer.
+  - `prev` tracks the final (possibly raised) value of the previous element.
+
+Complexity: O(n) time, O(1) space
+"""
 
 class Solution:
     def minOperations(self, nums: List[int]) -> int:
         n = len(nums)
-        res = 0
-        prev = 0
+        res = 0   # total increments
+        prev = 0  # final value of the previous element
 
         if n == 1:
-            return 0 
-        
+            return 0
+
         for i in nums:
-            res += max(0, prev - i + 1)
-            prev = max(i, prev + 1)
+            res += max(0, prev - i + 1)  # raise i to prev + 1 if needed
+            prev = max(i, prev + 1)      # the value i ends up as
 
         return res
-        

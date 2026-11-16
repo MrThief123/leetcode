@@ -1,9 +1,13 @@
-'''
-Merge two sorted linked lists into one sorted linked list
-Use a dummy node to simplify edge cases
-Iterate through both lists, comparing the current nodes and appending the smaller one to the merged list
-Once one list is exhausted, append the remaining nodes from the other list
-'''
+"""
+21. Merge Two Sorted Lists  [Easy]
+
+Approach (dummy head + splice):
+  - A dummy node avoids special-casing the first node.
+  - Repeatedly attach the smaller head of the two lists.
+  - When one list is exhausted, attach the rest of the other.
+
+Complexity: O(n + m) time, O(1) space (nodes are reused)
+"""
 
 # Definition for singly-linked list.
 # class ListNode:
@@ -13,7 +17,7 @@ Once one list is exhausted, append the remaining nodes from the other list
 class Solution:
     def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
         dummy = ListNode(-1)
-        current = dummy
+        current = dummy  # tail of the merged list
 
         # Use `and` instead of `or` and check both lists are not None
         while list1 and list2:

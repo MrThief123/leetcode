@@ -1,5 +1,5 @@
 """
-3512. Minimum Operations to Make Array Sum Divisible by K  [Easy]
+3512. Min Operations to Make Array Sum Divisible by K  [Medium]
 
 Approach:
   - Each operation decrements one element by 1, so it lowers the sum by 1.

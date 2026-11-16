@@ -1,8 +1,14 @@
-'''
-1970. Last Day Where You Can Still Cross
-Use Union-Find (Disjoint Set Union) to track connectivity between top and bottom rows as
-cells are unflooded in reverse order.
-'''
+"""
+1970. Last Day Where You Can Still Cross  [Hard]
+
+Approach (reverse time + Union-Find):
+  - Instead of flooding cells, process days backwards and "un-flood" them.
+  - Union each new land cell with adjacent land cells.
+  - Two virtual nodes represent the top and bottom edges; the first time (going
+    backwards) they connect is the last day a crossing is possible.
+
+Complexity: O(row * col * alpha) time, O(row * col) space
+"""
 
 class Solution:
     def latestDayToCross(self, row: int, col: int, cells: list[list[int]]) -> int:
@@ -20,9 +26,10 @@ class Solution:
 
         # Total nodes = grid cells + 2 virtual nodes
         N = row * col + 2
+        # (named LEFT/RIGHT, but they stand for the TOP and BOTTOM edges)
         LEFT, RIGHT = row * col, row * col + 1
         parents = [i for i in range(N)]
-        
+
         # Water array: True = flooded, False = land
         water = [True] * (row * col)  # start all flooded, will un-flood backward
 
@@ -55,6 +62,6 @@ class Solution:
 
             # Check if top is connected to bottom
             if ufind(LEFT) == ufind(RIGHT):
-                return day  # 0-indexed day
+                return day  # day cells[0..day-1] are flooded, so day is the last crossable day
 
         return 0

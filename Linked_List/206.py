@@ -1,9 +1,12 @@
-'''
-Delete the middle node of a singly linked list using the two-pointer technique
-Use a slow pointer to find the middle node and a fast pointer to reach the end of the list
-Maintain a previous pointer to the node before the slow pointer to facilitate removal
-If the list has only one node, return None
-'''
+"""
+206. Reverse Linked List  [Easy]
+
+Approach (iterative pointer reversal):
+  - Walk the list, pointing each node's `next` at the previous node.
+  - `prev` ends up as the new head.
+
+Complexity: O(n) time, O(1) space
+"""
 
 # Definition for singly-linked list.
 # class ListNode:
@@ -13,15 +16,15 @@ If the list has only one node, return None
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if not head or not head.next:
-            return head
+            return head  # empty or single node: already reversed
 
-        prev = None 
+        prev = None
         curr = head
 
         while curr:
-            nex = curr.next
-            curr.next = prev
-            prev = curr
+            nex = curr.next   # remember the rest of the list
+            curr.next = prev  # flip the pointer
+            prev = curr       # advance both pointers
             curr = nex
 
         return prev

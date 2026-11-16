@@ -1,5 +1,5 @@
 """
-3759. Count Elements With at Least K Greater Values  [Medium]
+3759. Count Elements With at Least K Greater Values  [Easy]
 
 Approach:
   - Walk the distinct values from smallest to largest.

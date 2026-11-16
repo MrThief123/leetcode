@@ -1,30 +1,35 @@
-'''
-Use two-pointer technique to find the maximum area of water container
-Initialize two pointers at the beginning and end of the height array
-Calculate the area formed by the lines at the two pointers
-Move the shorter line inward to potentially find a taller line
-'''
+"""
+11. Container With Most Water  [Medium]
 
+Approach (two pointers from both ends):
+  - Area = width * min(left height, right height).
+  - Move the shorter wall inward: moving the taller one can only shrink the area.
+
+Complexity: O(n) time, O(1) space
+"""
+
+# Version 1
 class Solution:
     def maxArea(self, height: List[int]) -> int:
-        point1 = 0
-        point2 = len(height) - 1
+        point1 = 0                    # left wall
+        point2 = len(height) - 1      # right wall
 
-        max_cap = 0 
+        max_cap = 0
 
         while point1 < point2:
             area = (point2 - point1) * min(height[point1], height[point2])
             max_cap = max(area, max_cap)
 
+            # Advance the shorter wall in search of a taller one
             if height[point1] < height[point2]:
                 point1 += 1
             else:
                 point2 -= 1
 
         return max_cap
-    
-    
-'''Alternative code using similar logic'''
+
+
+# Version 2: same logic, different variable names
 class Solution:
     def maxArea(self, height: List[int]) -> int:
         left = 0
@@ -38,5 +43,5 @@ class Solution:
                 left += 1
             else:
                 right -= 1
- 
+
         return maximum

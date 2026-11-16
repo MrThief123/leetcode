@@ -1,9 +1,11 @@
-'''
-Find the maximum depth of a binary tree
-Use recursion to traverse the tree
-At each node, calculate the depth of left and right subtrees
-Return the maximum depth between the two subtrees plus one for the current node
-'''
+"""
+104. Maximum Depth of Binary Tree  [Easy]
+
+Approach (recursion):
+  - Depth of a node = 1 + max(depth of left, depth of right); an empty node has depth 0.
+
+Complexity: O(n) time, O(h) space (recursion stack, h = height)
+"""
 
 # Definition for a binary tree node.
 # class TreeNode:
@@ -16,11 +18,9 @@ class Solution:
 
         def depth(root: Optional[TreeNode]):
             if root is None:
-                return 0
+                return 0  # base case: empty subtree
 
             left_depth = depth(root.left)
             right_depth = depth(root.right)
             return 1 + max(left_depth, right_depth)
         return depth(root)
-
-        

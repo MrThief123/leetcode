@@ -1,10 +1,13 @@
-'''
-42. Trapping Rain Water
-Use two-pointer technique to calculate trapped water.
-Track maximum heights from both ends
-Move smaller height pointer inward and calculate trapped water at each step.
-    = min(max_left, max_right) - height[current]
-'''
+"""
+42. Trapping Rain Water  [Hard]
+
+Approach (two pointers with running maxima):
+  - Water above a bar = min(max_left, max_right) - height.
+  - Always advance the side with the smaller running maximum: that side's water
+    level is fully determined by its own maximum.
+
+Complexity: O(n) time, O(1) space
+"""
 
 class Solution:
     def trap(self, height: List[int]) -> int:

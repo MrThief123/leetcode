@@ -1,22 +1,25 @@
-'''
-2414. Length of the Longest Alphabetical Continuous Substring
-Use a sliding window approach to find the longest continuous substring where each character is exactly one greater than the previous character.
-Maintain a variable to keep track of the current substring and its length.
-Iterate through the string character by character, comparing each character with the last character of the current substring.
-If the current character is one greater than the last character of the substring, append it to the substring.
-If not, reset the substring to start from the current character.
-Keep track of the maximum length of the substring throughout the process.
-'''
+"""
+2414. Longest Continuous Increasing Substring  [Easy]
+
+Approach:
+  - Build the current substring one character at a time.
+  - If the new character isn't exactly one more than the last, drop characters
+    from the end until it is (or the substring is empty), then append.
+  - Track the longest length reached.
+
+Complexity: O(n) amortised time, O(n) space
+"""
 
 class Solution:
     def longestContinuousSubstring(self, s: str) -> int:
         out = 0
-        substring = "" 
+        substring = ""  # current alphabetical run
 
         for i in s:
+            # Not a valid continuation: shrink until it is
             while substring and ord(i) - ord(substring[-1]) != 1:
                 substring = substring[:-1]
             substring += i
             out = max(out, len(substring))
-                    
+
         return out

@@ -1,8 +1,15 @@
-'''
-You are given a 0-indexed 2D integer array grid of size m x n, where grid[i][j] represents the number of fish in the cell (i, j). A fisher can start at any cell and can repeatedly perform the following operations:
-- Catch all the fish at cell (i, j), or
-- Move to any adjacent cell (i + 1, j), (i - 1, j), (i, j + 1), or (i, j - 1) that has at least one fish. The fisher can only move to a cell if it has at least
-'''
+"""
+2658. Maximum Number of Fish in a Grid  [Medium]
+
+A fisher starts anywhere on a water cell (value > 0) and can move between
+adjacent water cells, catching all fish along the way.
+
+Approach (DFS over connected water components):
+  - DFS sums the fish in each connected component, zeroing cells as it goes.
+  - The answer is the largest component sum.
+
+Complexity: O(rows * cols) time, O(rows * cols) space (recursion)
+"""
 
 class Solution:
     def findMaxFish(self, grid: List[List[int]]) -> int:
@@ -10,9 +17,10 @@ class Solution:
         m = len(grid[0])
         directions = ((1, 0), (-1, 0), (0, 1), (0, -1))
 
+        # Total fish in the component containing (i, j)
         def dfs(i, j):
             total = grid[i][j]
-            grid[i][j] = 0
+            grid[i][j] = 0  # mark visited
 
             for di, dj in directions:
                 ni, nj = i + di, j + dj

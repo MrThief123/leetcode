@@ -1,11 +1,12 @@
-'''
-Remove stars from a string by removing the closest non-star character to the left of each star
-Use a stack to simulate the process
-For each character in the string:
-- If it's a star, pop from the stack (removing the closest non-star character to the left)
-- Otherwise, push it onto the stack
-Return the final string after processing all characters
-'''
+"""
+2390. Removing Stars From a String  [Medium]
+
+Approach (stack):
+  - Push normal characters.
+  - A star removes the closest non-star character to its left, i.e. pops the stack.
+
+Complexity: O(n) time, O(n) space
+"""
 
 class Solution:
     def removeStars(self, s: str) -> str:
@@ -13,7 +14,7 @@ class Solution:
 
         for char in s:
             if char == "*":
-                stack.pop()
+                stack.pop()  # delete the nearest character on the left
             else:
                 stack.append(char)
 

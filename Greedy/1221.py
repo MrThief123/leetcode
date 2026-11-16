@@ -1,15 +1,17 @@
-'''
-1221. Split a String in Balanced Strings
-Iterate through the string while maintaining a balance counter
-Increment the counter for 'L' and decrement for 'R'
-Each time the counter returns to zero, a balanced substring is found
-Count and return the number of balanced substrings
-'''
+"""
+1221. Split a String in Balanced Strings  [Easy]
+
+Approach (running balance):
+  - +1 for 'L', -1 for 'R'.
+  - Each time the balance returns to zero, a balanced substring ends; count it.
+
+Complexity: O(n) time, O(1) space
+"""
 
 class Solution:
     def balancedStringSplit(self, s: str) -> int:
-        out = 0
-        count = 0
+        out = 0    # balanced substrings found
+        count = 0  # current balance (L minus R)
 
         for c in s:
             if c == 'L':
@@ -22,4 +24,3 @@ class Solution:
                 count = 0
 
         return out
-        
