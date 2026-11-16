@@ -1,17 +1,21 @@
-'''
-3531. Count Covered buildings
-Store the buildings in row-wise and column-wise dictionaries.
-For each building, check if there are buildings in all four directions (left, right, above, below).
-sort the lists for efficient checking.
-if a building has neighbors in all four directions, it is considered covered.
-'''
+"""
+3531. Count Covered Buildings  [Medium]
+
+Approach:
+  - Group building coordinates by row and by column.
+  - A building is covered if its row has buildings on both left and right
+    and its column has buildings both above and below.
+  - Only the min and max of each group are needed, so sort and check the ends.
+
+Complexity: O(m log m) time (m = buildings), O(m) space
+"""
 
 class Solution:
     def countCoveredBuildings(self, n: int, buildings: List[List[int]]) -> int:
         from collections import defaultdict
 
-        rows = defaultdict(list)
-        cols = defaultdict(list)
+        rows = defaultdict(list)  # row -> columns occupied
+        cols = defaultdict(list)  # column -> rows occupied
 
         # Group buildings by row and column
         for r, c in buildings:

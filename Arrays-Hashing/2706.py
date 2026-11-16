@@ -1,18 +1,20 @@
-'''
-2706. Buy Two Chocolates
-Keep track of 2 smallest prices. 
-If the sum of the 2 smallest prices is less than or equal to the money we have, 
-    return the remaining money after buying the chocolates. Otherwise, 
-    return the original amount of money.
-'''
+"""
+2706. Buy Two Chocolates  [Easy]
+
+Approach:
+  - Track the two cheapest prices in one pass.
+  - If their sum fits the budget, return the leftover money, else return money unchanged.
+
+Complexity: O(n) time, O(1) space
+"""
 
 class Solution:
     def buyChoco(self, prices: List[int], money: int) -> int:
-        a, b = float('inf'), float('inf')
+        a, b = float('inf'), float('inf')  # smallest, second smallest
 
         for i in prices:
             if i <= a:
-                b = a
+                b = a  # old smallest becomes second smallest
                 a = i
             elif i < b:
                 b = i

@@ -1,7 +1,12 @@
-'''
-2150. Find All Lonely Numbers in the Array
-Create hash map of all numbers
-'''
+"""
+2150. Find All Lonely Numbers in the Array  [Medium]
+
+Approach:
+  - Count every number.
+  - A number is lonely if it appears once and neither num-1 nor num+1 exists.
+
+Complexity: O(n) time, O(n) space
+"""
 
 class Solution:
     def findLonely(self, nums: List[int]) -> List[int]:

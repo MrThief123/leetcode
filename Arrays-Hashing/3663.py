@@ -1,20 +1,25 @@
-'''
-3663. Least Frequent Digit in an Integer
-Count the frequency of each digit in the integer. Return the digit with the lowest frequency. If multiple digits have the same lowest frequency, return the smallest digit among them.
-'''
+"""
+3663. Find The Least Frequent Digit  [Easy]
+
+Approach:
+  - Count each digit.
+  - Take the minimum of (frequency, digit) tuples so ties go to the smaller digit.
+
+Complexity: O(d) time (d = digits), O(1) space
+"""
 
 class Solution:
     def getLeastFrequentDigit(self, n: int) -> int:
         from collections import defaultdict
 
-        count = defaultdict(int)
+        count = defaultdict(int)  # digit char -> frequency
 
         for i in str(n):
             count[i] += 1
 
-        out = (float('inf'), float('inf'))  
+        out = (float('inf'), float('inf'))  # (frequency, digit)
 
         for key, value in count.items():
             out = min(out, (value, int(key)))
 
-        return out[1]   
+        return out[1]

@@ -1,13 +1,18 @@
-'''
-49. Group Anagrams
-Use a frequency count of characters to group words that are anagrams.
-'''
+"""
+49. Group Anagrams  [Medium]
+
+Approach:
+  - Anagrams share the same letter-frequency vector.
+  - Use that vector (as a tuple) as the hash key and group words under it.
+
+Complexity: O(n * L) time (L = word length), O(n * L) space
+"""
 
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         from collections import defaultdict
 
-        out = defaultdict(list)
+        out = defaultdict(list)  # frequency tuple -> words
 
         out_list = []
 
@@ -18,7 +23,7 @@ class Solution:
             for char in word:
                 temp[ord(char) - 97] += 1
 
-            temp = tuple(temp)
+            temp = tuple(temp)  # lists aren't hashable
             out[temp].append(word)
 
         for word in out.values():

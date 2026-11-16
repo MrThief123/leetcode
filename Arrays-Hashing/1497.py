@@ -1,17 +1,21 @@
-'''
-1497. Check If Array Pairs Are Divisible by k
-Given an array of integers arr of even length n and an integer k, 
-return true if it is possible to reorder arr such that 
-arr[2 * i + 1] is divisible by k with arr[2 * i] for every 0 <= i < n /
-'''
+"""
+1497. Check If Array Pairs Are Divisible by k  [Medium]
+
+Approach (remainder counting):
+  - Two numbers sum to a multiple of k iff their remainders sum to k (or both are 0).
+  - Count remainders; remainder r must be matched by an equal count of remainder k-r.
+  - Remainder 0 pairs with itself, so its count must be even.
+
+Complexity: O(n + k) time, O(k) space
+"""
 
 class Solution:
     def canArrange(self, arr: List[int], k: int) -> bool:
         from collections import defaultdict
 
-        count = defaultdict(int)
+        count = defaultdict(int)  # remainder -> frequency
 
-        # Normalize remainders to be positive
+        # Python's % already returns a non-negative remainder, even for negatives
         for num in arr:
             count[num % k] += 1
 

@@ -1,7 +1,12 @@
-'''
-36. Valid Sudoku
-Use sets to track seen numbers in rows, columns, and 3x3 sub-boxes
-'''
+"""
+36. Valid Sudoku  [Medium]
+
+Approach:
+  - Keep a set per row, column and 3x3 box.
+  - On each filled cell, fail if its digit is already in any of its three sets.
+
+Complexity: O(1) time (fixed 9x9 board), O(1) space
+"""
 
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
@@ -16,7 +21,7 @@ class Solution:
 
                 if val == '.':
                     continue
-                
+
                 # check row
                 if val in rows[i]:
                     return False
@@ -29,7 +34,7 @@ class Solution:
                 else:
                     columns[j].add(val)
 
-                # check grid
+                # check grid: boxes are numbered 0-8, left to right, top to bottom
                 row = i // 3
                 col = j // 3
                 pos = row * 3 + col

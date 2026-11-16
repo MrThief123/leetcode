@@ -1,7 +1,7 @@
 Check out my leetcode Profile
 https://leetcode.com/u/MeThief123/
 
-## Solutions (177 problems)
+## Solutions (178 problems)
 
 ### Arrays & Hashing (38)
 
@@ -241,7 +241,7 @@ https://leetcode.com/u/MeThief123/
 | 295 | [Find Median from Data Stream](Heap-Design/295.py) | 🔴 Hard |
 | 933 | [Number of Recent Calls](Heap-Design/933.py) | 🟢 Easy |
 
-### Math & Simulation (9)
+### Math & Simulation (10)
 
 | # | Problem | Difficulty |
 |---|---------|------------|
@@ -251,6 +251,7 @@ https://leetcode.com/u/MeThief123/
 | 1304 | [Find N Unique Integers Sum up to Zero](Math-Simulation/1304.py) | 🟢 Easy |
 | 1496 | [Path Crossing](Math-Simulation/1496.py) | 🟢 Easy |
 | 1518 | [Water Bottles](Math-Simulation/1518.py) | 🟢 Easy |
+| 2243 | [Calculate Digit Sum of a String](Math-Simulation/2243.py) | 🟢 Easy |
 | 2656 | [Maximum Sum With Exactly K Elements](Math-Simulation/2656.py) | 🟢 Easy |
 | 3100 | [Water Bottles II](Math-Simulation/3100.py) | 🟡 Medium |
 | 3127 | [Make a Square with the Same Color](Math-Simulation/3127.py) | 🟢 Easy |

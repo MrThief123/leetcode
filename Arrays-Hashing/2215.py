@@ -1,9 +1,12 @@
-'''
-Find the distinct elements in two arrays using set operations
-Convert both arrays to sets to remove duplicates
-Use set difference to find elements unique to each array
-Return the results as lists
-'''
+"""
+2215. Find the Difference of Two Arrays  [Easy]
+
+Approach (set difference):
+  - Convert both arrays to sets to drop duplicates.
+  - Answer is [elements only in nums1, elements only in nums2].
+
+Complexity: O(n + m) time, O(n + m) space
+"""
 
 class Solution:
     def findDifference(self, nums1: List[int], nums2: List[int]) -> List[List[int]]:

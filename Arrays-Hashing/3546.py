@@ -1,7 +1,13 @@
-'''
-3546. Partition Grid Into Two Parts With Equal Sum
-Use 2d prefix sums to check for possible horizontal or vertical splits.
-'''
+"""
+3546. Equal Sum Grid Partition I  [Medium]
+
+Approach (prefix sums):
+  - Build prefix sums of row totals and of column totals.
+  - A horizontal (or vertical) cut works when the sum before the cut equals the
+    sum after it, i.e. prefix[i] == total - prefix[i].
+
+Complexity: O(rows * cols) time, O(rows + cols) space
+"""
 
 from typing import List
 
@@ -32,11 +38,11 @@ class Solution:
 
         # check for possible splits
         if rows > 1:
-            # check horizontal splits
+            # check horizontal splits (cut after row i)
             for i in range(rows-1):
                 if prefix_sum_rows[i] == prefix_sum_rows[-1] - prefix_sum_rows[i]:
                     return True
-        # check vertical splits
+        # check vertical splits (cut after column i)
         if cols > 1:
             for i in range(cols-1):
                 if prefix_sum_cols[i] == prefix_sum_cols[-1] - prefix_sum_cols[i]:

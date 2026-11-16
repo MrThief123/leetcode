@@ -1,9 +1,11 @@
-'''
-961. N-Repeated Element in Size 2N Array
-Use a set to track seen elements
-Iterate through the array and check if the element has been seen before
-Return the first element that is found in the set
-'''
+"""
+961. N-Repeated Element in Size 2N Array  [Easy]
+
+Approach:
+  - Exactly one value repeats, so the first value seen twice is the answer.
+
+Complexity: O(n) time, O(n) space
+"""
 
 class Solution:
     def repeatedNTimes(self, nums: List[int]) -> int:

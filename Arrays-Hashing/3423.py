@@ -1,13 +1,18 @@
-'''
-3423. Maximum Adjacent Distance
-You are given a 0-indexed integer array nums. The adjacent distance of two adjacent integers in nums is defined as the absolute difference between them.
-Return the maximum adjacent distance of nums after you insert the last element of nums at the beginning of nums and the first element of nums at the end of nums.
-'''
+"""
+3423. Maximum Difference Between Adjacent Elements in a Circular Array  [Easy]
+
+Approach:
+  - Circular adjacency just adds the pair (last, first).
+  - Pad the array with the last element in front and the first element behind,
+    then take the max absolute difference of neighbours.
+
+Complexity: O(n) time, O(n) space
+"""
 
 class Solution:
     def maxAdjacentDistance(self, nums: List[int]) -> int:
-        nums = [nums[-1]] + nums + [nums[0]]
-        
+        nums = [nums[-1]] + nums + [nums[0]]  # wrap around both ends
+
         out = 0
 
         for i in range(len(nums)-1):
