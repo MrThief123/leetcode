@@ -1,7 +1,7 @@
 Check out my leetcode Profile
 https://leetcode.com/u/MeThief123/
 
-## Solutions (178 problems)
+## Solutions (179 problems)
 
 ### Arrays & Hashing (38)
 
@@ -201,7 +201,7 @@ https://leetcode.com/u/MeThief123/
 | 3560 | [Min Cost to Cut a Log](Dynamic_Programming/3560.py) | 🟡 Medium |
 | 3784 | [Min Deletion Cost to Make All Characters Equal](Dynamic_Programming/3784.py) | 🟡 Medium |
 
-### Greedy (17)
+### Greedy (18)
 
 | # | Problem | Difficulty |
 |---|---------|------------|
@@ -221,6 +221,7 @@ https://leetcode.com/u/MeThief123/
 | 2410 | [Maximum Matching of Players and Trainers](Greedy/2410.py) | 🟡 Medium |
 | 2483 | [Minimum Penalty for a Shop](Greedy/2483.py) | 🟡 Medium |
 | 2708 | [Maximum Strength of a Group](Greedy/2708.py) | 🟡 Medium |
+| 2914 | [Minimum Number of Changes to Make Binary String Beautiful](Greedy/2914.py) | 🟡 Medium |
 | 3760 | [Maximum Substrings With Distinct Start](Greedy/3760.py) | 🟡 Medium |
 
 ### Intervals (5)
