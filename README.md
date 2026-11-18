@@ -1,7 +1,7 @@
 Check out my leetcode Profile
 https://leetcode.com/u/MeThief123/
 
-## Solutions (179 problems)
+## Solutions (180 problems)
 
 ### Arrays & Hashing (38)
 
@@ -242,11 +242,12 @@ https://leetcode.com/u/MeThief123/
 | 295 | [Find Median from Data Stream](Heap-Design/295.py) | 🔴 Hard |
 | 933 | [Number of Recent Calls](Heap-Design/933.py) | 🟢 Easy |
 
-### Math & Simulation (10)
+### Math & Simulation (11)
 
 | # | Problem | Difficulty |
 |---|---------|------------|
 | 9 | [Palindrome Number](Math-Simulation/9.py) | 🟢 Easy |
+| 468 | [Validate IP Address](Math-Simulation/468.py) | 🟡 Medium |
 | 657 | [Robot Return to Origin](Math-Simulation/657.py) | 🟢 Easy |
 | 1266 | [Minimum Time Visiting All Points](Math-Simulation/1266.py) | 🟢 Easy |
 | 1304 | [Find N Unique Integers Sum up to Zero](Math-Simulation/1304.py) | 🟢 Easy |
