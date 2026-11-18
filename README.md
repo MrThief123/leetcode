@@ -1,9 +1,9 @@
 Check out my leetcode Profile
 https://leetcode.com/u/MeThief123/
 
-## Solutions (181 problems)
+## Solutions (182 problems)
 
-### Arrays & Hashing (39)
+### Arrays & Hashing (40)
 
 | # | Problem | Difficulty |
 |---|---------|------------|
@@ -20,6 +20,7 @@ https://leetcode.com/u/MeThief123/
 | 1207 | [Unique Number of Occurrences](Arrays-Hashing/1207.py) | 🟢 Easy |
 | 1346 | [Check If N and Its Double Exist](Arrays-Hashing/1346.py) | 🟢 Easy |
 | 1431 | [Kids With the Greatest Number of Candies](Arrays-Hashing/1431.py) | 🟢 Easy |
+| 1470 | [Shuffle the Array](Arrays-Hashing/1470.py) | 🟢 Easy |
 | 1497 | [Check If Array Pairs Are Divisible by k](Arrays-Hashing/1497.py) | 🟡 Medium |
 | 1550 | [Three Consecutive Odds](Arrays-Hashing/1550.py) | 🟢 Easy |
 | 1657 | [Determine if Two Strings Are Close](Arrays-Hashing/1657.py) | 🟡 Medium |
