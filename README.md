@@ -1,7 +1,7 @@
 Check out my leetcode Profile
 https://leetcode.com/u/MeThief123/
 
-## Solutions (182 problems)
+## Solutions (183 problems)
 
 ### Arrays & Hashing (40)
 
@@ -48,7 +48,7 @@ https://leetcode.com/u/MeThief123/
 | 3759 | [Count Elements With at Least K Greater Values](Arrays-Hashing/3759.py) | 🟢 Easy |
 | 3838 | [Weighted Word Mapping](Arrays-Hashing/3838.py) | 🟢 Easy |
 
-### Two Pointers (19)
+### Two Pointers (20)
 
 | # | Problem | Difficulty |
 |---|---------|------------|
@@ -69,6 +69,7 @@ https://leetcode.com/u/MeThief123/
 | 830 | [Positions of Large Groups](Two_Pointers/830.py) | 🟢 Easy |
 | 905 | [Sort Array By Parity](Two_Pointers/905.py) | 🟢 Easy |
 | 1679 | [Max Number of K-Sum Pairs](Two_Pointers/1679.py) | 🟡 Medium |
+| 2124 | [Check if All A's Appears Before All B's](Two_Pointers/2124.py) | 🟢 Easy |
 | 2414 | [Longest Continuous Increasing Substring](Two_Pointers/2414.py) | 🟢 Easy |
 | 2486 | [Append Characters to String to Make Subsequence](Two_Pointers/2486.py) | 🟡 Medium |
 
