@@ -1,9 +1,9 @@
 Check out my leetcode Profile
 https://leetcode.com/u/MeThief123/
 
-## Solutions (183 problems)
+## Solutions (184 problems)
 
-### Arrays & Hashing (40)
+### Arrays & Hashing (41)
 
 | # | Problem | Difficulty |
 |---|---------|------------|
@@ -39,6 +39,7 @@ https://leetcode.com/u/MeThief123/
 | 2840 | [Check if Strings Can Be Made Equal (II)](Arrays-Hashing/2840.py) | 🟡 Medium |
 | 2869 | [Min Operations to Collect Elements](Arrays-Hashing/2869.py) | 🟢 Easy |
 | 3010 | [Divide Array Into Subarrays With Minimum Cost I](Arrays-Hashing/3010.py) | 🟢 Easy |
+| 3042 | [Count Prefix and Suffix Pairs I](Arrays-Hashing/3042.py) | 🟢 Easy |
 | 3423 | [Max Difference Between Adjacent Elements in Circular Array](Arrays-Hashing/3423.py) | 🟢 Easy |
 | 3512 | [Min Operations to Make Array Sum Divisible by K](Arrays-Hashing/3512.py) | 🟡 Medium |
 | 3531 | [Count Covered Buildings](Arrays-Hashing/3531.py) | 🟡 Medium |
