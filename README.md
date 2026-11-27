@@ -1,9 +1,9 @@
 Check out my leetcode Profile
 https://leetcode.com/u/MeThief123/
 
-## Solutions (184 problems)
+## Solutions (185 problems)
 
-### Arrays & Hashing (41)
+### Arrays & Hashing (42)
 
 | # | Problem | Difficulty |
 |---|---------|------------|
@@ -16,6 +16,7 @@ https://leetcode.com/u/MeThief123/
 | 318 | [Maximum Product of Word Lengths](Arrays-Hashing/318.py) | 🟡 Medium |
 | 350 | [Intersection of Two Arrays II](Arrays-Hashing/350.py) | 🟢 Easy |
 | 521 | [Longest Uncommon Subsequence I](Arrays-Hashing/521.py) | 🟢 Easy |
+| 633 | [Sum of Square Numbers](Arrays-Hashing/633.py) | 🟡 Medium |
 | 961 | [N-Repeated Element in Size 2N Array](Arrays-Hashing/961.py) | 🟢 Easy |
 | 1207 | [Unique Number of Occurrences](Arrays-Hashing/1207.py) | 🟢 Easy |
 | 1346 | [Check If N and Its Double Exist](Arrays-Hashing/1346.py) | 🟢 Easy |
