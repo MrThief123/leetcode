@@ -1,9 +1,9 @@
 Check out my leetcode Profile
 https://leetcode.com/u/MeThief123/
 
-## Solutions (185 problems)
+## Solutions (186 problems)
 
-### Arrays & Hashing (42)
+### Arrays & Hashing (43)
 
 | # | Problem | Difficulty |
 |---|---------|------------|
@@ -27,6 +27,7 @@ https://leetcode.com/u/MeThief123/
 | 1657 | [Determine if Two Strings Are Close](Arrays-Hashing/1657.py) | 🟡 Medium |
 | 1732 | [Find the Highest Altitude](Arrays-Hashing/1732.py) | 🟢 Easy |
 | 1887 | [Reduction Operations to Make Array Elements Equal](Arrays-Hashing/1887.py) | 🟡 Medium |
+| 2057 | [Smallest Index With Equal Value](Arrays-Hashing/2057.py) | 🟢 Easy |
 | 2078 | [Two Furthest Houses With Different Colors](Arrays-Hashing/2078.py) | 🟢 Easy |
 | 2150 | [Find All Lonely Numbers in the Array](Arrays-Hashing/2150.py) | 🟡 Medium |
 | 2170 | [Min Operations to Make Array Alternating](Arrays-Hashing/2170.py) | 🟡 Medium |
