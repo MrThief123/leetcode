@@ -1,7 +1,7 @@
 Check out my leetcode Profile
 https://leetcode.com/u/MeThief123/
 
-## Solutions (186 problems)
+## Solutions (187 problems)
 
 ### Arrays & Hashing (43)
 
@@ -153,7 +153,7 @@ https://leetcode.com/u/MeThief123/
 | 872 | [Leaf-Similar Trees](Trees/872.py) | 🟢 Easy |
 | 1022 | [Sum of Root To Leaf Binary Numbers](Trees/1022.py) | 🟢 Easy |
 
-### Graphs (BFS / DFS / Union Find) (17)
+### Graphs (BFS / DFS / Union Find) (18)
 
 | # | Problem | Difficulty |
 |---|---------|------------|
@@ -168,6 +168,7 @@ https://leetcode.com/u/MeThief123/
 | 944 | [Rotting Oranges](Graphs/944.py) | 🟡 Medium |
 | 1020 | [Number of Enclaves](Graphs/1020.py) | 🟡 Medium |
 | 1162 | [As Far from Land as Possible](Graphs/1162.py) | 🟡 Medium |
+| 1376 | [Time Needed to Inform All Employees](Graphs/1376.py) | 🟡 Medium |
 | 2146 | [K Highest Ranked Items Within a Price Range](Graphs/2146.py) | 🟡 Medium |
 | 2577 | [Minimum Time to Visit a Cell in a Grid](Graphs/2577.py) | 🔴 Hard |
 | 2658 | [Maximum Number of Fish in a Grid](Graphs/2658.py) | 🟡 Medium |
